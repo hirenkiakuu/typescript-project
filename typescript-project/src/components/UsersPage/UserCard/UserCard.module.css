@@ -1,0 +1,29 @@
+.card-container {
+    padding: 10px;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    
+    background-color: #F5F8FA;
+    border: 2px solid #F5F8FA;
+    border-radius:  6px;
+    cursor: pointer;
+    max-width: 70%;
+    margin: 10px 0;
+}
+
+.card-container:hover {
+    border-color: var(--accent-color);
+}
+
+.user-photo {
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.user-personal-info-container {
+    
+}
