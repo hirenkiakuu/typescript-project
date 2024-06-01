@@ -17,6 +17,5 @@ const PaginatorButton:React.FC<PaginatorButtonProps> = ({isActive, buttonNumber,
         </>
     );
 }
-// onClick={() => onPaginatorButtonClick(text)}
 
 export default PaginatorButton;

@@ -1,9 +1,14 @@
 .users-page-container {
+    padding: 10px;
     margin: 0 auto;
     max-width: 1200px;
     display: flex;
     align-items: center;
     flex-direction: column;
+}
+
+.users-page-container h1 {
+    margin-bottom: 10px;
 }
 
 .filter-select {
@@ -35,6 +40,34 @@
     border-top: 5px solid #333;
     transform: translateY(-50%);
     pointer-events: none;
+}
+
+.create-user-button {
+    padding: 10px;
+    border: 2px solid var(--accent-color);
+    background-color: var(--accent-color);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 20px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.controls-panel {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.search-input {
+    padding: 5px;
+    border: 2px solid hsl(0, 0%, 80%);;
+    border-radius: 6px;
+}
+
+.search-input::placeholder {
+    font-size: 20px;
 }
 
 

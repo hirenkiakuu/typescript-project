@@ -1,14 +1,18 @@
 import axios from 'axios';
 import { useState } from 'react';
+import { setToken } from '../../utils/auth';
+import { useNavigate } from 'react-router-dom';
 import styles from './RegisterPage.module.css';
 
 
-const RegisterPage = () => {
-    const [formData, setFormData] = useState<{ username: string; email: string; password: string }>({
-        username: '',
+const RegisterPage : React.FC = () => {
+    const [formData, setFormData] = useState<{ first_name: string; email: string; password: string }>({
+        first_name: '',
         email: '',
         password: ''
     });
+
+    const navigate = useNavigate();
 
     const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         const { id, value } = e.target;
@@ -16,7 +20,7 @@ const RegisterPage = () => {
         if (id === 'fullname') {
             setFormData({
                 ...formData,
-                username: value
+                first_name: value
             });
         } else {
             setFormData({
@@ -29,13 +33,22 @@ const RegisterPage = () => {
     const handleSubmit = async () => {
         const res = await axios.post(
             'https://reqres.in/api/register',
-            formData,
+            JSON.stringify(formData),
+            {
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                }
+            }
         );
 
         if (res) {
+            const { token } = res.data;
+            setToken(token);
             console.log(res);
+            navigate('/users');
         } else {
-            console.log('error')
+            console.log('error, не тот аккаунт')
         }
     }
 
@@ -45,23 +58,17 @@ const RegisterPage = () => {
                 <form>
                     <div className={styles['form-container-inner']}>
                         <div className={styles['form-input-row']}>
-                            <label htmlFor="fullname">Имя Фамилия</label>
-                            <input id="fullname" type="text" placeholder="John Doe" onChange={handleInputChange} />
-                        </div>
-                        <div className={styles['form-input-row']}>
                             <label htmlFor="email">Логин</label>
-                            <input id="email" type="text" placeholder="example@gmail.com" onChange={handleInputChange} />
+                            <input id="email" type="text" placeholder="eve.holt@reqres.in" onChange={handleInputChange} />
                         </div>
                         <div className={styles['form-input-row']}>
                             <label htmlFor="password">Пароль</label>
                             <input id="password" type="password" placeholder="123456" onChange={handleInputChange} />
                         </div>
                         <div className={styles['form__submit-button']} onClick={handleSubmit}>
-                            Зарегистрироваться
+                            Войти в аккаунт
                         </div>  
                     </div>
-                    
-                    
                 </form>
             </div>
         </>
