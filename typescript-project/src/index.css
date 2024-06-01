@@ -25,6 +25,8 @@ p {
   margin: 0;
 }
 
+
+
 /* a {
   font-weight: 500;
   color: #646cff;
@@ -36,7 +38,8 @@ a:hover {
 
 body {
   margin: 0;
-
+  height: 100vh;
+  box-sizing: border-box;
 }
 
 /* h1 {
