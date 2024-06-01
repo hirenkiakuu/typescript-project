@@ -15,6 +15,16 @@
   --accent-color: rgb(239, 223, 249);
 }
 
+h1, h2 {
+  margin: 0;
+  padding: 0;
+}
+
+p {
+  font-size: 12px;
+  margin: 0;
+}
+
 /* a {
   font-weight: 500;
   color: #646cff;

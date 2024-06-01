@@ -1,13 +1,14 @@
 .card-container {
     padding: 10px;
     display: flex;
-    gap: 10px;
+    gap: 20px;
     align-items: center;
     
     background-color: #F5F8FA;
     border: 2px solid #F5F8FA;
     border-radius:  6px;
     cursor: pointer;
+    min-width: 400px;
     max-width: 70%;
     margin: 10px 0;
 }
